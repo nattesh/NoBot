@@ -63,7 +63,7 @@ public class NoBotController {
                 res = createQuoteResponse(chatId, "Che schifo l'avocado", messageToReplyId);
             } else if(msg.toLowerCase().contains("domanda") || msg.toLowerCase().contains("domande")) {
                 res = createSimpleResponse(chatId, "Ad ogni domanda c'è solo una risposta");
-            } else if(msg.contains("?") && !msg.toLowerCase().contains("http://")) {
+            } else if(msg.contains("?") && !msg.toLowerCase().contains("http")) {
                 res = createSimpleResponse(chatId, "No");
             } else if(msg.equals("❓") || msg.equals("❔")) {
                 res = createQuoteResponse(chatId, "Oh fermi tutti è arrivato l'haker...\n\n\n...No", messageToReplyId);
