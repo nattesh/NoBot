@@ -35,8 +35,8 @@ public class NoBotController {
             chatId = message.getChat().getId();
             messageToReplyId = message.getMessage_id();
 
-            if(msg.contains("No")) {
-                res = createSimpleResponse(chatId, "Molto bene");
+            if(msg.equalsIgnoreCase("No")) {
+                res = createQuoteResponse(chatId, "Molto bene", messageToReplyId);
             } else if(msg.toLowerCase().contains("illumino di immenso?")){
                 res = createQuoteResponse(chatId, "https://www.youtube.com/watch?v=ras2dDmogzA", messageToReplyId);
             } else if(msg.toLowerCase().contains("la donzelletta vien dalla campagna?")){
@@ -65,6 +65,8 @@ public class NoBotController {
                 res = createSimpleResponse(chatId, "Ad ogni domanda c'è solo una risposta");
             } else if(msg.contains("?")) {
                 res = createSimpleResponse(chatId, "No");
+            } else if(msg.equals("❓") || msg.equals("❔")) {
+                res = createQuoteResponse(chatId, "Oh fermi tutti è arrivato l'haker...\n\n\n...No", messageToReplyId);
             }
 
             response = ResponseEntity.status(HttpStatus.OK).body(res);
